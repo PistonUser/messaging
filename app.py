@@ -8,13 +8,14 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET","POST"])
 def home():
+    messages = []
     with sqlite3.connect("message.db") as conn:
       c = conn.cursor
       if request.method == "POST":
         c.execute("INSERT INTO messages VALUES (?,?)",(request.form.get("user"), request.form.get("message")))
         conn.commit()
       messages = c.execute("SELECT * FROM messages")
-      return render_template("index.html", messages=messages)
+    return render_template("index.html", messages=messages)
 
 # @app.route("/<point1>", methods=["GET","POST"])
 # def drew(point1):
