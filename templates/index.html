@@ -4,32 +4,39 @@
     index
 {% endblock %}
 
+{% block head %}
+{% endblock %}
+
 {% block main %}
-    <div style="margin:auto">
-        <form action="/" method="post">
-            <div class="mb-1">
-                <label for="user" class="form-label">username</label>
-            </div>
-            <div class="mb-3">
-                <input class="form-control mx-auto w-auto" id="user" name="user" minlength="1" maxlength="20">
-            </div>
-            <div class="mb-1">
-                <label for="message" class="form-label">message</label>
-            </div>
-            <div class="mb-3">
-                <input class="form-control mx-auto w-auto" id="message" name="message" placeholder="message" minlength="1" maxlength="255">
-            </div>
-            <div class="mb-3">
-                <button type="submit" class="btn btn-primary mb-2">send</button>
-            </div>
-        </form>
-        {% for i in messages %}
-        <div class="mb-3">
-            <p>{{ i["user"] }}</p>
-        </div>
-        <div class="mb-2">
-            <p><button type="submit" class="btn btn-primary mb-2">{{ i["message"] }}</button></p>
-        </div>
-        {% endfor %}
+<div class="row">
+    <div class="col border sidebar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+        </svg>
     </div>
+    <div class="col">
+        <div class="row border text-area" id="text-area">
+            {% for i in messages|reverse %}
+                <div class="mb-3 messageBox">
+                    <div class="mb-1">
+                        <label for="{{ i[2] }}" class="form-label">{{ i[0] }}</label>
+                    </div>
+                    <div class="mb-2 form-control message" style="width: 85vw;" id="{{ i[2] }}">{{ i[1] }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row border mx-auto sendBox">
+            <form action="/" method="post" class="input-group mb-3 mx-auto">
+                <div class="form-floating">
+                    <input class="form-control" id="user" name="user" placeholder="username" minlength="1" maxlength="20" autocorrect="off" required="true">
+                    <label for="user" class="form-label">username</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" id="message" name="message" placeholder="message" minlength="1" maxlength="255" autocorrect="off" required="true">
+                    <label for="message" class="form-label">message</label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

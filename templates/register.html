@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+<div class="row border mx-auto">
+    <form action="/" method="post" class="input-group mb-3 mx-auto">
+        <div class="form-floating">
+            <input class="form-control" id="user" name="user" placeholder="username" minlength="1" maxlength="20" autocorrect="off" required="true">
+            <label for="user" class="form-label">username</label>
+        </div>
+        <div class="form-floating">
+            <input class="form-control" id="password" name="password" placeholder="message" minlength="4" maxlength="20" autocorrect="off" required="true">
+            <label for="password" class="form-label">password</label>
+        </div>
+        <div class="form-floating">
+            <input class="form-control" id="image" name="image" type="image">
+            <label for="image" class="form-label btn btn-color d-none">Your profile picture</label>
+        </div>
+    </form>
+</div>
+{% endblock %}

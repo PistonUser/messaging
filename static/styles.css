@@ -1,4 +1,4 @@
-.root{
+:root{
     --white:#f0f0f0;
     --almostWhite:#d0d0d0;
     --notWhite:#b0b0b0;
@@ -6,30 +6,34 @@
     --black: #0f0f0f;
 }
 
-body {
-    align-items: center;
-    background-color: var(--bg-color);
-    display: flex;
+.sidebar {
+    width: 10vw;
     height: 100vh;
-    justify-content: center;
-    margin: 0px;
-    overflow: hidden;
-    padding: 0px;
-    color: var(--black)
+    background-color: var(--grey);
 }
 
-.box {
-    border: none;
-    align-items: center;
-    background-color: var(--grey);
-    border-radius: 10px;
-    z-index: 0;
+.text-area {
+    background-color: var(--notWhite);
+    flex-wrap: wrap;
+    overflow-y: auto;
+    flex-direction: column-reverse;
+    width: 90vw;
+    height: 85vh;
+    top:0;
 }
-.container {
-    justify-content: center;
-    display: grid;
-    color: rgba(255, 255, 255, 0.9);
-    grid-template-columns: min(9vw, 9vh) min(9vw, 9vh) min(9vw, 9vh) min(9vw, 9vh) min(9vw, 9vh) min(9vw, 9vh) min(9vw, 9vh) min(9vw, 9vh);
-    grid-template-rows: min(9vw, 9vh) min(9vw, 9vh) min(9vw, 9vh) min(9vw, 9vh) min(9vw, 9vh) min(9vw, 9vh) min(9vw, 9vh) min(9vw, 9vh);
-    gap: min(1vw, 1vh);
+
+.messageBox {
+    max-width: 85vw;
+    width: auto;
+}
+
+.message {
+    background-color: var(--grey);
+    color: var(--white);
+}
+
+.sendBox {
+    width: 90vw;
+    height: auto;
+    bottom: 0;
 }
